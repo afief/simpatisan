@@ -2,7 +2,6 @@ $(function() {
 
     var baseUrl = 'http://localhost/simpatisan/';
 
-    buttonsListener();
     facebookInit();
 
     function facebookInit() {
@@ -16,10 +15,6 @@ $(function() {
             fbLoginStatus();
         });
     }
-    function buttonsListener() {
-        $("#btUserDropDown").bind("click blur", loginMenuClick);
-    }
-
     //fungsi
     function fbLoginStatus() {
         FB.getLoginStatus(function(e) {
@@ -27,23 +22,26 @@ $(function() {
                 console.log("Connected To Faceook");
                 fbOnConnect();
             } else {
+                fbOnNotConnect();
                 console.log("Not Connected To Facebook");
             }
-            $(".btLoginFacebook").unbind("click").bind("click", fbLogin);
         });
     }
     function fbOnConnect() {
-        /*
-        FB.api("/me/picture?type=large&redirect=false", function(e) {
-            if (e.data)
-                if (e.data.url)
-                    $(".fromfbid").attr("src", e.data.url);
-            console.log(e.data.url);
-        });*/
-        //$(".btLoginFacebook").html('<i class="fa fa-facebook-square"></i> Logout');
-        //$(".btLoginFacebook").unbind("click").bind("click", fbLogout);
-        $(".btLoginFacebookLine").hide();
+        FB.api('/me', function(response) {
+            if (response) {
+                $("#user").addClass("show");
+                $("#userphoto").attr("src", "http://graph.facebook.com/" + response.id + "/picture?type=square&height=250&width=250&redirect=true");          
+                $("#username").html(response.name);
+            } else {
+                fbOnNotConnect();
+            }
+        });
     }
+    function fbOnNotConnect() {
+        $("#facebookLogin").addClass("show");
+    }
+
     function fbOnAfterLogin() {
         $.ajax({
             type: "GET",
@@ -64,43 +62,6 @@ $(function() {
             },
             dataType: "json"
         });
-    }
-
-    function fbLogin() {
-        window.location.href = baseUrl + 'facebook/connect';
-        /*
-        FB.login(function(response) {
-            if (response.authResponse) {
-                console.log('Welcome Facebook!');
-                fbOnAfterLogin();
-            } else {
-                console.log('User cancelled login or did not fully authorize.');
-            }
-        },{scope: 'email,user_friends,user_about_me,user_birthday,user_location'});
-        */
-    }
-    
-    function fbLogout() {
-        FB.logout(function(response) {
-            $(".btLoginFacebook").html('<i class="fa fa-facebook-square"></i> Facebook');
-            $(".btLoginFacebook").unbind("click").bind("click", fbLogin);
-        });
-    }
-
-    //fungsi - fungsi listeners tombol
-    function loginMenuClick(e) {
-        if (($("#loginMenu").css("display") == "none") && (e.type != "blur")) {
-            $("#loginMenu").css("display", "block");
-            $("#loginMenu").css("bottom", (0 - $("#loginMenu").height() + 13) + "px");            
-        } else {
-            if (e.target.className == "fa fa-chevron-circle-down") {
-                $("#loginMenu").css("display", "none");
-            } else {
-                window.setTimeout(function() {
-                    $("#loginMenu").css("display", "none");
-                }, 500);
-            }
-        }
     }
 
 });

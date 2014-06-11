@@ -12,15 +12,3 @@
 <body>
 
 	<div class="mainwrapper">
-
-		<header>
-			<div class="container">
-				<div class="logo">
-					<img src="" alt="">
-				</div>
-				<div class="user" id="user">
-					<div class="photo"><img id="userphoto" src="" alt=""></div>
-					<div class="username" id="username"></div>
-				</div>
-			</div>
-		</header>

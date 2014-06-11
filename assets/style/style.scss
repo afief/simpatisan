@@ -68,7 +68,7 @@ body{
     padding:0px;
     margin: 0px;
     font-family: "Open Sans", Helvetica, Arial, 'lucida grande',tahoma,verdana,arial,sans-serif;
-    background-image: url($baseUrl + "images/bg.jpg");
+    background-image: url($baseUrl + "images/bg.png");
     background-repeat: repeat;
 } 
 .mainwrapper {
@@ -85,6 +85,37 @@ body{
     max-width: 900px;
     margin: 0px auto;
     padding: 0px 10px;
+    .kiri {
+        float: left;
+        width: 250px;
+        .logo {
+            background-image: url($baseUrl + "images/logo.png");
+            width: 100%;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .headermenu {
+            float: left;
+            margin-top: 20px;
+            width: 100%;
+            &>div {
+                display: none;
+                &.show {
+                    display: block;
+                }
+            }
+            .photo {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .kanan {
+        float: right;
+        width: 650px;
+    }
 }
 
 footer {
