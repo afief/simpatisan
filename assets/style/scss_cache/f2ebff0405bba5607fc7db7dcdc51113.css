@@ -1,0 +1,79 @@
+/* compiled by scssphp v0.0.9 on Wed, 11 Jun 2014 12:00:33 +0200 (0.0364s) */
+
+@font-face {
+  font-family: "Comic Neue";
+  src: url("http://localhost/simpatisan/assets/font/ComicNeue-Regular.woff"); }
+
+@font-face {
+  font-family: "Comic Neue Bold";
+  src: url("http://localhost/simpatisan/assets/font/ComicNeue-Bold.woff"); }
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("http://localhost/simpatisan/assets/font/openSans.woff"); }
+
+* {
+  margin: 0px;
+  padding: 0px; }
+  *:focus {
+    outline: none; }
+
+::-webkit-input-placeholder {
+  color: #929999; }
+
+:-moz-placeholder {
+  color: #929999; }
+
+::-moz-placeholder {
+  color: #929999; }
+
+:-ms-input-placeholder {
+  color: #929999; }
+
+body {
+  height: 100%;
+  background: #eee;
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Open Sans", Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif;
+  background-image: url("http://localhost/simpatisan/assets/images/bg.jpg");
+  background-repeat: repeat; }
+
+.mainwrapper {
+  height: 100%; }
+  .mainwrapper:before {
+    content: '';
+    float: left;
+    height: 100%; }
+
+.container {
+  overflow: auto;
+  max-width: 900px;
+  margin: 0px auto;
+  padding: 0px 10px; }
+  .container:before, .container:after {
+    content: " ";
+    display: table; }
+  .container:after {
+    clear: both; }
+
+footer {
+  width: 100%;
+  background-color: #fefefe;
+  box-shadow: 0px -1px 5px -3px #444;
+  color: #444;
+  font-size: small; }
+  footer .minimenu {
+    color: #999; }
+    footer .minimenu a {
+      color: #3c5d85;
+      text-decoration: none; }
+      footer .minimenu a:hover {
+        color: #0260cc; }
+  footer:after {
+    content: '';
+    display: block;
+    clear: both; }
+  footer > div.container {
+    padding-top: 10px; }
