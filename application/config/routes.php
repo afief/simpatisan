@@ -39,7 +39,16 @@
 */
 
 $route['default_controller'] = "beranda";
-$route['404_override'] = '';
+$route['calon'] = "beranda/calons";
+$route['calon/(:any)'] = "beranda/calon/$1";
+//$route['berita/(:num)'] = "berita/single/$1";
+
+$route['u/(:num)'] = "undang/u/$1";
+
+$route['facebook/connect'] = "fb_api/checkFacebook";
+$route['facebook/logout'] = "fb_api/logout";
+
+$route['404_override'] = 'error';
 
 
 /* End of file routes.php */

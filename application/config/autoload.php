@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('fb');
+$autoload['libraries'] = array('database', 'sess', 'mview');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('fb');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'utility_helper');
+$autoload['helper'] = array('url', 'utility', 'login');
 
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array('dblogin');
 
 
 /* End of file autoload.php */

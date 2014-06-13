@@ -11,8 +11,8 @@ class Fb {
         require 'facebook/facebook.php';
 
         $this->fb = new Facebook(array(
-            'appId'  => '308104096001937',
-            'secret' => 'b6a40f222ac4671e9280b36904838ba0',
+            'appId'  => '676813325744578',
+            'secret' => '5388ecac856baf832946652bb7010a01',
         ));
 
         $this->userid = $this->fb->getUser();
